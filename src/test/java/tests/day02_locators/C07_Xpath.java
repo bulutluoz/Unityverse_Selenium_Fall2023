@@ -3,6 +3,7 @@ package tests.day02_locators;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -38,9 +39,21 @@ public class C07_Xpath {
         driver.findElement(By.xpath("(//span[@class = 'nav-a-content'])[2]")).click();
         // simdi ilk urunu tiklayalim
         driver.findElement(By.xpath("(//div[@class='a-section a-spacing-mini _cDEzb_noop_3Xbw5'])[1]")).click();
-        //9-  Gift card details’den 25 $’i  secin
+        //9-  Gift card details’den diger kutusuna 30  yazdirin
 
-        //10-Urun ucretinin 25$ oldugunu test edin
+        WebElement secimButonu = driver.findElement(By.name("oneTimeReloadAmount"));
+
+        secimButonu.sendKeys("30");
+        //10-Urun ucreti olarak 30 yazildigini test edin
+
+        System.out.println(secimButonu.getText());
+
+        if (secimButonu.getText().equals("30")){
+            System.out.println("30$ Testi PASSED");
+        }else{
+            System.out.println("30$ Testi FAILED");
+        }
+
         //11-Sayfayi kapatin
         Thread.sleep(5000);
         driver.close();
