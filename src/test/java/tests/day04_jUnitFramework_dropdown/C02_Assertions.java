@@ -39,5 +39,20 @@ public class C02_Assertions {
     public void kucukTesti(){
         // eger sayi1'in sayi2'den kucuk oldugunu test edin
         // sayi1 < sayi2 ==> true olmali
+        Assert.assertTrue(sayi1<sayi2);
+    }
+
+    @Test
+    public void esitTesti(){
+        // eger sayi1 ile sayi2'nin esit oldugunu test edin
+        // sayi1 == sayi2 ==> true olmali
+        Assert.assertEquals(sayi1,sayi2);
+    }
+
+    @Test
+    public void esitDegilTesti(){
+        // eger sayi1 ile sayi2'nin esit olmadigini test edin
+        // sayi1 == sayi2 ==> false olmali
+        Assert.assertNotEquals(sayi1,sayi2);
     }
 }
