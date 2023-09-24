@@ -1,10 +1,13 @@
 package tests.day04_jUnitFramework_dropdown;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
+
+import java.util.List;
 
 public class C08_DropdownMenu extends TestBase {
 
@@ -28,7 +31,17 @@ public class C08_DropdownMenu extends TestBase {
         select.selectByVisibleText("Option 1");
         System.out.println(select.getFirstSelectedOption().getText());
         //	4.Tüm dropdown değerleri(value) yazdırın
+        System.out.println("==========");
+        List<WebElement> optionsList = select.getOptions();
+        for (WebElement each : optionsList
+             ) {
+            System.out.println(each.getText());
+        }
         //	5. Dropdown’un boyutunun 4 olduğunu test edin
+        int expectedListSize = 4;
+        int actualListSize = optionsList.size();
+
+        Assert.assertEquals(expectedListSize,actualListSize);
 
         Thread.sleep(2000);
     }
