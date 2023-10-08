@@ -19,7 +19,7 @@ public class C01_TumSayfaScreenshot extends TestBase {
         String expectedUrlIcerik = "amazon";
         String actualUrl = driver.getCurrentUrl();
         Assert.assertTrue(actualUrl.contains(expectedUrlIcerik));
-        ReusableMethods.tumSayfaFotografCek(driver);
+        ReusableMethods.tumSayfaFotografCek(driver,"amazon");
         // Nutella icin arama yapin
         WebElement aramaKutusu = driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella" + Keys.ENTER);
@@ -34,6 +34,6 @@ public class C01_TumSayfaScreenshot extends TestBase {
         String actualUrunIsmi = urunIsimElementi.getText();
 
         Assert.assertTrue(actualUrunIsmi.contains(expectedUrunIcerik));
-        ReusableMethods.tumSayfaFotografCek(driver);
+        ReusableMethods.tumSayfaFotografCek(driver,"ilkUrun");
     }
 }
